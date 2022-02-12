@@ -1,0 +1,9 @@
+{% extends "AppCoder/base.html" %}
+{% block ContenidoQueAgrega %}
+<form action="" method="POST" >{% csrf_token %}
+    <table>
+        {{ miFormulario.as_table }}
+    </table>
+    <input type="submit" value="Enviar" />
+</form>
+{% endblock ContenidoQueAgrega %}
