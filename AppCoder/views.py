@@ -37,7 +37,7 @@ def formulario_nadador(request):
     
     miFormulario = FormularioNadador()
 
-    return render(request, 'AppCoder/formularioNadador.html',{"miFormulario":miFormulario})
+    return render(request, 'AppCoder/Nadador.html',{"miFormulario":miFormulario})
 
 
 

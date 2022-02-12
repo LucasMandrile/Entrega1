@@ -1,9 +1,20 @@
 {% extends "AppCoder/base.html" %}
-{% block ContenidoQueAgrega %}
+{% block ContenidoCambio %}
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container px-5">
+            
 <form action="" method="POST" >{% csrf_token %}
     <table>
         {{ miFormulario.as_table }}
     </table>
     <input type="submit" value="Enviar" />
 </form>
-{% endblock ContenidoQueAgrega %}
+
+</header>
+
+{% endblock ContenidoCambio %}
+
+{% block ContenidosSection %}
+
+{% endblock ContenidosSection   %}
