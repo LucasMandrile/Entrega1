@@ -1,0 +1,32 @@
+{% extends "AppCoder/base.html" %}
+{% block ContenidoCambio %}
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container px -5">
+
+            <a class="btn btn-primary btn-l rounded-pill mt-15" href="{% url 'AppCoderNadador' %}">Volver a Nadador</a> </br>
+        </br>
+
+<p> Resultados de la busqueda: {{nombre}}</p>
+</p>
+</p>
+
+{%if nadadores%}
+
+<ul>
+{% for nadador in nadadores %}
+    <li> Nadador: {{nadador.nombre}}  - Edad: {{nadador.edad}}  - Email: {{nadador.email}}
+    
+{%endfor%}
+
+<ul>
+
+{%endif%}
+
+</header>
+
+{% endblock ContenidoCambio %}
+
+{% block ContenidosSection %}
+
+{% endblock ContenidosSection   %}
