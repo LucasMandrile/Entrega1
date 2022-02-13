@@ -1,8 +1,22 @@
+{% extends "AppCoder/base.html" %}
+{% block ContenidoCambio %}
 
-
-<form action="" method="POST" >{% csrf_token %}
-    <input type= "text" name = "nombre" id "nombre">
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container px-5">
+            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="">Cargar datos de nadador a buscar</a>
+        </br>
+<form action="/AppCoder/buscar/" method="GET">
+    
+    <input type= "text" name = "nombre" id = "nombre">
      
     
-        <input type="submit" value="Buscar" />
+        <input type="submit" class="btn btn-primary" value="Buscar" />
 </form>
+</header>
+
+{% endblock ContenidoCambio %}
+
+{% block ContenidosSection %}
+
+{% endblock ContenidosSection   %}

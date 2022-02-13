@@ -10,6 +10,7 @@ urlpatterns = [
     path('formularioNadador/', formulario_nadador, name="AppCoderFormularioNadador"),
     path('busquedaNadador/', busqueda_nadador, name="AppCoderBusquedaNadador"),
     path('buscar/',buscar),
+    
 
 
 

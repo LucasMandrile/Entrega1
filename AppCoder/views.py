@@ -1,5 +1,5 @@
 import re
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 from .models import Nadador
 from AppCoder.forms import FormularioNadador
@@ -24,7 +24,6 @@ def formulario_nadador(request):
 
         miFormulario = FormularioNadador(request.POST)
         
-        print(miFormulario)
         
         if miFormulario.is_valid:
             
@@ -37,6 +36,8 @@ def formulario_nadador(request):
         
             nadador = Nadador(nombre=r_nombre,email=r_email, edad=r_edad)
             nadador.save()
+
+            return redirect("AppCoderNadador")
     
     miFormulario = FormularioNadador()
 
@@ -50,7 +51,10 @@ def buscar(request):
     if request.GET["nombre"]:
     #respuesta = f"Estoy buscando al nadador: {request.GET ['nadador']} "
         nombre = request.GET["nombre"]
-        nadadores= Nadador.objects.filter(nombre__incontains=nombre)
+
+        print(f"el nombre es: {nombre}")
+
+        nadadores= Nadador.objects.filter(nombre=nombre)
 
         return render(request,'AppCoder/resultadoBusqueda.html',{"nadadores":nadadores,"nombre":nombre})
     else:
