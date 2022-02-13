@@ -1,6 +1,9 @@
-from django.shortcuts import render
+import re
+from django.shortcuts import render,redirect
+
 from .models import Nadador
 from AppCoder.forms import FormularioNadador
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -21,7 +24,6 @@ def formulario_nadador(request):
 
         miFormulario = FormularioNadador(request.POST)
         
-        print(miFormulario)
         
         if miFormulario.is_valid:
             
@@ -34,10 +36,32 @@ def formulario_nadador(request):
         
             nadador = Nadador(nombre=r_nombre,email=r_email, edad=r_edad)
             nadador.save()
+
+            return redirect("AppCoderNadador")
     
     miFormulario = FormularioNadador()
 
-    return render(request, 'AppCoder/formularioNadador.html',{"miFormulario":miFormulario})
+    return render(request, 'AppCoder/FormularioNadador.html',{"miFormulario":miFormulario})
+
+def busqueda_nadador(request):
+    return render(request, 'AppCoder/busquedaNadador.html')
+ 
+def buscar(request):
+
+    if request.GET["nombre"]:
+    #respuesta = f"Estoy buscando al nadador: {request.GET ['nadador']} "
+        nombre = request.GET["nombre"]
+
+        print(f"el nombre es: {nombre}")
+
+        nadadores= Nadador.objects.filter(nombre=nombre)
+
+        return render(request,'AppCoder/resultadoBusqueda.html',{"nadadores":nadadores,"nombre":nombre})
+    else:
+
+        respuesta= "No enviaste datos"
+
+    return HttpResponse(respuesta)
 
 
 
