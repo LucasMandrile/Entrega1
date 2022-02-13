@@ -8,6 +8,8 @@ urlpatterns = [
     path('nadador/', nadador, name="AppCoderNadador"),
     path('prueba/', prueba, name="AppCoderPrueba"),
     path('formularioNadador/', formulario_nadador, name="AppCoderFormularioNadador"),
+    path('busquedaNadador/', busqueda_nadador, name="AppCoderBusquedaNadador"),
+    path('buscar/',buscar),
 
 
 
